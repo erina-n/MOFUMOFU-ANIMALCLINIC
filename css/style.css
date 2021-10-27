@@ -1,0 +1,571 @@
+@charset "UTF-8";
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-size: 100%;
+  font-weight: normal;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  vertical-align: bottom;
+}
+
+li {
+  list-style-type: none;
+}
+
+body {
+  font-family: "EB Garamond","Noto Sans JP","Hiragino Kaku Gothic ProN","Hiragino Sans",Meiryo,sans-serif;
+  font-size: 15px;
+
+/* line-height: 1; */
+  color: #a7d28f;
+}
+
+a {
+  text-decoration: underline;
+  color: #a7d28f;
+}
+
+a:hover {
+  text-decoration: none;
+}
+
+.text {
+  line-height: 1.8;
+}
+
+/*--------------------------------
+ レイアウト
+---------------------------------*/
+.section {
+  padding: 40px 0;
+}
+
+.container {
+  padding: 0 20px;
+}
+
+/*--------------------------------
+ヘッダー
+---------------------------------*/
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  padding: 15px;
+  background-color: #a7d28f;
+}
+
+.header-logo {
+  width: 110px;
+}
+
+.header-logo img {
+  backface-visibility: hidden;
+}
+
+.gnav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: flex;
+  visibility: hidden;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  transition: opacity .3s ease;
+  opacity: 0;
+  background-color: #a7d28f;
+}
+
+.gnav.show {
+  visibility: visible;
+  opacity: 1;
+}
+
+.gnav-list {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  width: 100%;
+  padding: 0;
+}
+
+.gnav-item {
+  font-size: 20px;
+}
+
+.gnav-item:not(:last-child) {
+  margin-bottom: 20px;
+}
+
+.gnav-item a {
+  text-decoration: none;
+  color: #63a6db;
+}
+
+.gnav-item.active a {
+  color: #63a6db;
+}
+
+.gnavPC {
+  display: none;
+}
+
+.mainVisual {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 360px;
+  text-align: center;
+  background-image: url(../img/bg-header_pc.jpg);
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+}
+
+.mainVisual-title {
+  font-size: 48px;
+
+/* margin-bottom: 10px; */
+  animation-name: fade-in;
+  animation-duration: 2s;
+  animation-delay: .5s;
+  opacity: 0;
+  color: #63a6db;
+  text-shadow: 0 3px 6px rgba(45, 98, 195, 0.2);
+
+  animation-fill-mode: forwards;
+}
+
+@keyframes fade-in {
+  from {
+    transform: translateY(10px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+
+.mainVisual-subtitle {
+  font-size: 14px;
+  color: #63a6db;
+}
+
+.pageVisual {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 160px;
+  text-align: center;
+  background-image: url(../img/bg-page-header_sp.jpg);
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+}
+
+.pageVisual-title {
+  font-size: 32px;
+
+/* margin-bottom: 5px; */
+  color: #63a6db;
+  text-shadow: 0 3px 6px rgba(45, 98, 195, 0.2);
+}
+
+.pageVisual-subtitle {
+  font-size: 12px;
+}
+
+.btnMenu {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 48px;
+  height: 48px;
+  padding: 10px;
+  text-align: center;
+  border: none;
+  border-radius: 0 0 0 8px;
+  outline: none;
+  background-color: #a7d28f;
+
+  appearance: none;
+}
+
+.btnMenu-line {
+  position: relative;
+  left: 0;
+  display: block;
+  width: 100%;
+  height: 2px;
+  transition: all .4s;
+  border-radius: 4px;
+  background-color: #d4ecea;
+}
+
+
+.btnMenu-line::before,
+.btnMenu-line::after {
+  position: absolute;
+  display: inherit;
+  width: inherit;
+  height: inherit;
+  content: "";
+  transition: inherit;
+  border-radius: inherit;
+  background-color: inherit;
+}
+
+.btnMenu-line::before {
+  top: -8px;
+}
+
+.btnMenu-line::after {
+  top: 8px;
+}
+
+.btnMenu.active .btnMenu-line {
+  background-color: transparent;
+}
+
+.btnMenu.active .btnMenu-line::before,
+.btnMenu.active .btnMenu-line::after {
+  top: 0;
+}
+
+.btnMenu.active .btnMenu-line::before {
+  transform: rotate(45deg);
+}
+
+.btnMenu.active .btnMenu-line::after {
+  transform: rotate(-45deg);
+}
+
+/*--------------------------------
+ コンセプト
+---------------------------------*/
+.concept-body {
+  margin-bottom: 20px;
+}
+
+.concept-img {
+  text-align: center;
+}
+
+.concept-text {
+  margin-bottom: 15px;
+}
+
+.pageLinks {
+  display: flex;
+  margin-bottom: 30px;
+}
+
+.pageLinks-item:not(:last-child) {
+  margin-right: 20px;
+}
+
+/*--------------------------------
+ フッター
+---------------------------------*/
+.footer {
+  padding: 40px 20px;
+  background-color: #a7d28f;
+}
+
+.footerNav {
+  margin-bottom: 20px;
+}
+
+.footerNav-list {
+  display: flex;
+  justify-content: center;
+}
+
+.footerNav-item {
+  font-size: 16px;
+}
+
+.footerNav-item:not(:last-child) {
+  margin-right: 30px;
+}
+
+.footerNav-item a {
+  transition: opacity .3s;
+  text-decoration: none;
+  color: #fff;
+}
+
+.footerNav-item a:hover {
+  opacity: .8;
+}
+
+.footer-copyright {
+  font-size: 12px;
+  text-align: center;
+  color: #63a6db;
+}
+
+/*--------------------------------
+ 下層ページ：サービス
+---------------------------------*/
+.service-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin-bottom: -20px;
+}
+
+.service-item {
+  flex: 0 0 calc((100% - 15px) / 2);
+  margin-bottom: 25px;
+}
+
+.service-img {
+  margin-bottom: 5px;
+}
+
+.service-title {
+  font-size: 13px;
+  color: #63a6db;
+
+
+/* margin-bottom: 3px; */
+}
+
+.service-price {
+  font-size: 14px;
+}
+
+/*--------------------------------
+ 下層ページ：アクセス
+---------------------------------*/
+.access-lead {
+  margin-bottom: 30px;
+}
+
+.access-address {
+  font-size: 15px;
+  line-height: 1.7;
+  margin-bottom: 20px;
+}
+
+.access-map iframe {
+  width: 100%;
+  height: 350px;
+}
+
+
+/*media Queries 768px以上
+----------------------------------------------------*/
+@media screen and (min-width: 768px) {
+  body {
+    font-size: 16px;
+  }
+
+  /* レイアウト */
+  .section {
+    padding: 70px 0;
+  }
+
+  .container {
+    max-width: 1170px;
+    margin: 0 auto;
+    padding: 0 30px;
+  }
+
+  /* ヘッダー */
+  .header {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    padding: 20px;
+  }
+
+  .header-logo {
+    width: 400px;
+  }
+
+  .pageHeader {
+    height: 200px;
+  }
+
+  .gnav {
+    display: none;
+  }
+
+  .gnavPC {
+    display: block;
+  }
+
+  .gnavPC-item.active a {
+    color:#63a6db;
+  }
+
+  .gnavPC-logo img {
+    backface-visibility: hidden;
+  }
+
+  .gnavPC-list {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .gnavPC-item {
+    font-size: 20px;
+  }
+
+  .gnavPC-item:not(:last-child) {
+    margin-right: 35px;
+  }
+
+  .gnavPC-item a {
+    transition: opacity .3s;
+    text-decoration: none;
+    color: #333;
+  }
+
+  .gnavPC-item a:hover {
+    opacity: .8;
+  }
+
+  .mainVisual {
+    height: 680px;
+    background-image: url(../img/bg-header_pc.jpg);
+  }
+
+  .mainVisual-title {
+    font-size: 88px;
+  }
+
+  .mainVisual-subtitle {
+    font-size: 18px;
+    color: #63a6db;
+  }
+
+  .pageVisual {
+    height: 200px;
+    background-image: url(../img/bg-page-header_pc.jpg);
+  }
+
+  .pageVisual-title {
+    font-size: 48px;
+  }
+
+  .pageVisual-subtitle {
+    font-size: 14px;
+    color: #63a6db;
+  }
+
+  .btnMenu {
+    display: none;
+  }
+
+  /* コンセプト */
+  .concept-inner {
+    display: flex;
+  }
+
+  .concept-body {
+    flex: 0 0 50%;
+    margin-right: 50px;
+    margin-bottom: 0;
+  }
+
+  .concept-img {
+    flex: 1;
+  }
+
+  .profile-img {
+    margin-right: 15px;
+  }
+
+  /* フッター */
+  .footer {
+    padding: 50px 20px;
+  }
+
+  .footerNav {
+    margin-bottom: 25px;
+  }
+
+  .footerNav-item {
+    font-size: 20px;
+  }
+
+  .footerNav-item:not(:last-child) {
+    margin-right: 30px;
+  }
+
+  /* 下層ページ：サービス */
+  .service-list {
+    display: flex;
+    justify-content: flex-start;
+    margin-bottom: -50px;
+  }
+
+  .service-item {
+    flex: 0 0 calc((100% - 60px) / 3);
+    margin-right: 30px;
+    margin-bottom: 50px;
+  }
+
+  .service-item:nth-child(3n) {
+    margin-right: 0;
+  }
+
+  .service-img {
+    margin-bottom: 10px;
+  }
+
+  .service-title {
+    font-size: 16px;
+  }
+
+  .service-price {
+    font-size: 14px;
+  }
+
+  /* 下層ページ：アクセス */
+  .access-address {
+    font-size: 15px;
+  }
+
+  .access-map iframe {
+    height: 480px;
+  }
+
+
+  /* 下層ページ：アクセス */
+  .access-address {
+    font-size: 15px;
+  }
+
+  .access-map iframe {
+    height: 480px;
+  }
+
+}
